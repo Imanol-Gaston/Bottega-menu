@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bottega Dinner Menu</title>
+</head>
+<script>
+  // Diner menu
+const menu = {
+  breakfast: {
+    entrees: [
+      { name: "tortilla de patata", price: 4 },
+      { name: "huevos benedictos", price: 7 },
+      { name: "sandwich vegetal", price: 6 },
+      { name: "tostada de aguacate y jamon", price: 8 }
+    ],
+    sides: [
+      { name: "macedonia de frutas", price: 5 },
+      { name: "yogurt con fruta y avena", price: 4 },
+      { name: "bollo de mantequilla", price: 3 }
+    ]
+  },
+  lunch: {
+    entrees: [
+      { name: "Hamburguesa completa", price: 10 },
+      { name: "Bocadillo de lomo con pimientos", price: 9 },
+      { name: "Burrito mexicano", price: 9 }
+    ],
+    sides: [
+      { name: "Patatas fritas", price: 5 },
+      { name: "Totopos con guacamole", price: 8 },
+      { name: "Alitas de pollo crujientes", price: 7 }
+    ]
+  },
+  dinner: {
+    entrees: [
+      { name: "Hamburguesa completa", price: 12 },
+      { name: "Bocadillo de lomo con pimientos", price: 11 },
+      { name: "Burrito mexicano", price: 11 }
+    ],
+    sides: [
+      { name: "Patatas fritas", price: 6 },
+      { name: "Totopos con guacamole", price: 9 },
+      { name: "Alitas de pollo crujientes", price: 8 }
+    ]
+  }
+};
+
+function comentarioAleatorio () {
+  const comentario = [
+    "Buenísima elección",
+    "A mí es de lo que mas me gusta",
+    "A la gente le suele gustar mucho",
+    "Se nota que tiene usted muy buen gusto"
+  ]
+  const aleatorio = Math.floor(Math.random() * comentario.length);
+  console.log(comentario[aleatorio]);
+}
+
+function totalPrice(entree, side1, side2) {
+  return entree.price + side1.price + side2.price;  
+}
+
+// imprimir menu de desayuno
+console.log("=== Bottega Dinner Menu ===");
+console.log("Breakfast");
+console.log("Entrees");
+menu.breakfast.entrees.forEach((entree, index) => {
+  console.log(`${index + 1}: ${entree.name} - ${entree.price}€`);
+});
+
+console.log("Sides");
+menu.breakfast.sides.forEach((side, index) => {
+  console.log(`${index + 1}: ${side.name} - ${side.price}€`);
+});
+
+// imprimir menu de comida
+console.log("Lunch");
+console.log("Entrees");
+menu.lunch.entrees.forEach((entree, index) => {
+  console.log(`${index + 1}: ${entree.name} - ${entree.price}€`);
+});
+
+console.log("Sides");
+menu.lunch.sides.forEach((side, index) => {
+  console.log(`${index + 1}: ${side.name} - ${side.price}€`);
+});
+
+// imprimir menu de cena
+console.log("Dinner");
+console.log("Entrees");
+menu.dinner.entrees.forEach((entree, index) => {
+  console.log(`${index + 1}: ${entree.name} - ${entree.price}€`);
+});
+
+console.log("Sides");
+menu.dinner.sides.forEach((side, index) => {
+  console.log(`${index + 1}: ${side.name} - ${side.price}€`);
+});
+
+const time = parseInt(prompt("Introduce la hora en formato 24h"))
+
+if (time >= 8 && time <= 11) {
+  const selectedBreakfastEntree = menu.breakfast.entrees[prompt("Introduce the entree number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedBreakfastEntree.name} es ${selectedBreakfastEntree.price}€`);
+
+  const selectedBreakfastSide1 = menu.breakfast.sides[prompt("Introduce side 1 number")- 1];
+  const selectedBreakfastSide2 = menu.breakfast.sides[prompt("Introduce side 2 number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedBreakfastSide1.name} es ${selectedBreakfastSide1.price}€`);
+  console.log(`El precio para ${selectedBreakfastSide2.name} es ${selectedBreakfastSide2.price}€`);
+
+  console.log(`El precio total es ${totalPrice(selectedBreakfastEntree, selectedBreakfastSide1, selectedBreakfastSide2)}€`)
+} else if (time >= 12 && time <= 15) {
+  const selectedLunchEntree = menu.lunch.entrees[prompt("Introduce the entree number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedLunchEntree.name} es ${selectedLunchEntree.price}€`);
+
+  const selectedLunchSide1 = menu.lunch.sides[prompt("Introduce side 1 number")- 1];
+  const selectedLunchSide2 = menu.lunch.sides[prompt("Introduce side 2 number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedLunchSide1.name} es ${selectedLunchSide1.price}€`);
+  console.log(`El precio para ${selectedLunchSide2.name} es ${selectedLunchSide2.price}€`);
+
+  console.log(`El precio total es ${totalPrice(selectedLunchEntree, selectedLunchSide1, selectedLunchSide2)}€`)
+} else if (time >= 18 && time <= 22) {
+  const selectedDinnerEntree = menu.dinner.entrees[prompt("Introduce the entree number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedDinnerEntree.name} es ${selectedDinnerEntree.price}€`);
+
+  const selectedDinnerSide1 = menu.dinner.sides[prompt("Introduce side 1 number")- 1];
+  const selectedDinnerSide2 = menu.dinner.sides[prompt("Introduce side 2 number")- 1];
+
+  comentarioAleatorio();
+
+  console.log(`El precio para ${selectedDinnerSide1.name} es ${selectedDinnerSide1.price}€`);
+  console.log(`El precio para ${selectedDinnerSide2.name} es ${selectedDinnerSide2.price}€`);
+
+  console.log(`El precio total es ${totalPrice(selectedDinnerEntree, selectedDinnerSide1, selectedDinnerSide2)}€`)
+} else {
+  console.log("El restaurante está cerrado o la hora introducida no es una hora correcta")
+}
+</script>
+</html>
