@@ -102,15 +102,36 @@ menu.dinner.sides.forEach((side, index) => {
 const time = parseInt(prompt("Introduce la hora en formato 24h"))
 
 if (time >= 8 && time <= 11) {
-  const selectedBreakfastEntree = menu.breakfast.entrees[prompt("Introduce the entree number")- 1];
+  let entree1 = prompt("Introduce the entree number");
 
+  while (entree1 < 1 || entree1 > 4){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 4")
+    entree1 = prompt("Introduce the entree number");
+  }
+
+  let selectedBreakfastEntree = menu.breakfast.entrees[entree1 - 1];
+  
   comentarioAleatorio();
 
   console.log(`El precio para ${selectedBreakfastEntree.name} es ${selectedBreakfastEntree.price}€`);
 
-  const selectedBreakfastSide1 = menu.breakfast.sides[prompt("Introduce side 1 number")- 1];
-  const selectedBreakfastSide2 = menu.breakfast.sides[prompt("Introduce side 2 number")- 1];
+  let side1 = prompt("Introduce the first side number");
 
+  while (side1 < 1 || side1 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side1 = prompt("Introduce the first side number");
+  }
+
+  const selectedBreakfastSide1 = menu.breakfast.sides[side1- 1];
+
+  let side2 = prompt("Introduce the second side number");
+
+  while (side2 < 1 || side2 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side2 = prompt("Introduce the second side number");
+  }
+
+  const selectedBreakfastSide2 = menu.breakfast.sides[side2- 1];
   comentarioAleatorio();
 
   console.log(`El precio para ${selectedBreakfastSide1.name} es ${selectedBreakfastSide1.price}€`);
@@ -118,36 +139,78 @@ if (time >= 8 && time <= 11) {
 
   console.log(`El precio total es ${totalPrice(selectedBreakfastEntree, selectedBreakfastSide1, selectedBreakfastSide2)}€`)
 } else if (time >= 12 && time <= 15) {
-  const selectedLunchEntree = menu.lunch.entrees[prompt("Introduce the entree number")- 1];
+  let entree1 = prompt("Introduce the entree number");
 
+  while (entree1 < 1 || entree1 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    entree1 = prompt("Introduce the entree number");
+  }
+
+  let selectedLunchEntree = menu.lunch.entrees[entree1 - 1];
+  
   comentarioAleatorio();
 
   console.log(`El precio para ${selectedLunchEntree.name} es ${selectedLunchEntree.price}€`);
 
-  const selectedLunchSide1 = menu.lunch.sides[prompt("Introduce side 1 number")- 1];
-  const selectedLunchSide2 = menu.lunch.sides[prompt("Introduce side 2 number")- 1];
+  let side1 = prompt("Introduce the first side number");
 
+  while (side1 < 1 || side1 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side1 = prompt("Introduce the first side number");
+  }
+
+  const selectedLunchSide1 = menu.lunch.sides[side1- 1];
+
+  let side2 = prompt("Introduce the second side number");
+
+  while (side2 < 1 || side2 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side2 = prompt("Introduce the second side number");
+  }
+
+  const selectedLunchSide2 = menu.lunch.sides[side2- 1];
   comentarioAleatorio();
 
-  console.log(`El precio para ${selectedLunchSide1.name} es ${selectedLunchSide1.price}€`);
   console.log(`El precio para ${selectedLunchSide2.name} es ${selectedLunchSide2.price}€`);
-
+  console.log(`El precio para ${selectedLunchSide1.name} es ${selectedLunchSide1.price}€`);
+  
   console.log(`El precio total es ${totalPrice(selectedLunchEntree, selectedLunchSide1, selectedLunchSide2)}€`)
 } else if (time >= 18 && time <= 22) {
-  const selectedDinnerEntree = menu.dinner.entrees[prompt("Introduce the entree number")- 1];
+  let entree1 = prompt("Introduce the entree number");
 
+  while (entree1 < 1 || entree1 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    entree1 = prompt("Introduce the entree number");
+  }
+
+  let selectedDinnerEntree = menu.dinner.entrees[entree1 - 1];
+  
   comentarioAleatorio();
 
   console.log(`El precio para ${selectedDinnerEntree.name} es ${selectedDinnerEntree.price}€`);
 
-  const selectedDinnerSide1 = menu.dinner.sides[prompt("Introduce side 1 number")- 1];
-  const selectedDinnerSide2 = menu.dinner.sides[prompt("Introduce side 2 number")- 1];
+  let side1 = prompt("Introduce the first side number");
 
+  while (side1 < 1 || side1 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side1 = prompt("Introduce the first side number");
+  }
+
+  const selectedDinnerSide1 = menu.dinner.sides[side1- 1];
+
+  let side2 = prompt("Introduce the second side number");
+
+  while (side2 < 1 || side2 > 3){
+    console.log("El número del plato introducido es incorrecto, introduzca un número entero del 1 al 3")
+    side2 = prompt("Introduce the second side number");
+  }
+
+  const selectedDinnerSide2 = menu.dinner.sides[side2- 1];
   comentarioAleatorio();
 
   console.log(`El precio para ${selectedDinnerSide1.name} es ${selectedDinnerSide1.price}€`);
   console.log(`El precio para ${selectedDinnerSide2.name} es ${selectedDinnerSide2.price}€`);
-
+  
   console.log(`El precio total es ${totalPrice(selectedDinnerEntree, selectedDinnerSide1, selectedDinnerSide2)}€`)
 } else {
   console.log("El restaurante está cerrado o la hora introducida no es una hora correcta")
